@@ -13,6 +13,13 @@ Udacity Self-Driving Car Engineer Nanodegree Advanced Lane Finding Project. Appl
 [curve_line_frames_windows]: ./output_images/curve_line_frames_windows.png "Sliding Windows Search"
 [demarcated_curve_lane_lines]: ./output_images/demarcated_curve_lane_lines.png "Demarcated Lane Lines"
 [inverse_transform_with_info]: ./output_images/inverse_transform_with_info.png "Inverse Transform with Radius & Offset Info"
+[unmanaged_line_detection]: ./output_images/unmanaged_line_detection.gif "Unmanaged Line Detection"
+[managed_line_detection]: ./output_images/managed_line_detection.gif "Managed Line Detection"
+
+
+
+__Project Objective Result Video:__ [Project Output Video](https://www.youtube.com/watch?v=sQcXlY738_o&feature=youtu.be)
+
 
 
 # Advanced Lane Lines Detection
@@ -176,12 +183,18 @@ can improve lines detection.
 ### Managing Bad Frames
 
 Below is a list of circumstances that could make line detection a challenge even after 
-applying Gradient and Color Thresholding techniques.  Therefore, it is recommended to 
-always include means to manage such cases.  In this program, we implemented a weighted 
-average of the previous three frame line coordinates to extrapolate the line the bad frame 
-in question.
+applying Gradient and Color Thresholding techniques.  
+
 * Too bright or too cloudy days
 * Shadows on the road
 * Car goes into a tunnel
 * Sharper turns
 * Tire or other marks on the road
+
+
+The following two short animations illustrate the improvement in line detection when having a manage line detection approach.   The challenge in the original video involve a sudden change in the lane color, asphalt road to concrete bridge, and some tire marks.  Even though the manage line detection video is not perfect in this case, it is significantly better than the unmanage approaches, I believe that it is just matter of tuning how many frames to average. 
+
+![unmanaged_line_detection]
+![managed_line_detection]
+
+The performance of the pipeline used in this project did not work to expectation on the given challenge.  The result is completely unacceptable, see harder_challenge_video.mp4 videos on the `output_images` folder.
